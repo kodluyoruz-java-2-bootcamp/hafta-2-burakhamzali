@@ -10,9 +10,37 @@ package org.kodluyoruz;
  *
  * TODO Bu 2 özellik ve bunların metotları için gereken kodları bu sınıfın içine yazın
  */
-public class GPU
+public class GPU extends Hardware
 {
-
+	private int memory;
+	private int bits;
+	public int getMemory() {
+		return memory;
+	}
+	public void setMemory(int memory) {
+		this.memory = memory;
+	}
+	public int getBits() {
+		return bits;
+	}
+	public void setBits(int bits) {
+		this.bits = bits;
+	}
+	@Override
+	public double hesapla() {
+		while(getMemory()>8){
+        	setMemory(getMemory()-2);
+        	setPrice(getPrice()+250);
+        }
+    	while(getBits()>  128){
+    		setBits(getBits()-64);
+    		setPrice(getPrice()+400);
+    		
+    	}
+		return getPrice();
+		
+	}
+	
     /*
      * Eğer ekran kartının hafızası 8 GB'tan fazlaysa, her 2 GB için fiyatı 250 TL artar.
      * Eğer ekran kartının renk skalası 128 bits'ten fazlaysa, her 64 bits için fiyatı 400 TL artar.

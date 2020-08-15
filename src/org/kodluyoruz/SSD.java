@@ -9,12 +9,30 @@ package org.kodluyoruz;
  *
  * TODO Bu özellik ve metotları için gereken kodları bu sınıfın içine yazın
  */
-public class SSD
+public class SSD extends Hardware
 {
 
+	private int memory;
     /*
      * Eğer SSD'nin hafızası 750 GB'tan fazlaysa, her 250 GB için fiyatı 275 TL artar.
      * TODO buna göre Hardware sınıfındaki fiyat hesaplayan metodu bu sınıfta yeniden yazın
      */
+
+	public int getMemory() {
+		return memory;
+	}
+
+	public void setMemory(int memory) {
+		this.memory = memory;
+	}
+	@Override
+	public double hesapla() {
+		
+		while(this.getMemory()>999) {
+    		setPrice(getPrice()+275);
+    		setMemory(getMemory()-250); 
+    	}
+		return getPrice();
+	}
 
 }

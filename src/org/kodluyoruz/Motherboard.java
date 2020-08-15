@@ -11,8 +11,45 @@ package org.kodluyoruz;
  *
  * TODO Bu 3 özellik ve bunların metotları için gereken kodları bu sınıfın içine yazın
  */
-public class Motherboard
-{
+public class Motherboard extends Hardware
+{   
+	
+private String CpuArchitect;
+private boolean wifiIncluded;
+private boolean bluetoothIncluded;
+public String getCpuArchitect() {
+	return CpuArchitect;
+}
+public void setCpuArchitect(String cpuArchitect) {
+	CpuArchitect = cpuArchitect;
+}
+public boolean isWifiIncluded() {
+	return wifiIncluded;
+}
+public void setWifiIncluded(boolean wifiIncluded) {
+	this.wifiIncluded = wifiIncluded;
+}
+public boolean isBluetoothIncluded() {
+	return bluetoothIncluded;
+}
+public void setBluetoothIncluded(boolean bluetoothIncluded) {
+	this.bluetoothIncluded = bluetoothIncluded;
+}
+
+@Override
+public double hesapla() {
+	if(isWifiIncluded()) {
+    	setPrice(getPrice()+250);
+    }
+    if (isBluetoothIncluded()) {
+    	setPrice(getPrice()+100);
+    }
+	
+	
+	
+	return getPrice();
+}
+
 
     /*
      * Eğer anakartın üzerinde WiFi chipset'i varsa anakartın fiyatı 250 TL artar.
